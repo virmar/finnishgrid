@@ -1,0 +1,30 @@
+Package: finnishgrid
+Type: Package
+Title: Fingrid Open Data API R Client
+Version: 0.1.0
+Authors@R: c(
+    person("Markus", "Virtanen", email = "markus.m.virtanen@gmail.com", 
+           role = c("aut", "cre")),
+    person("Kai", "Hippi", email = "kai.hippi@aalto.fi", 
+           role = "aut")
+  )
+Description: R API client package for Fingrid Open Data on the 
+    electricity market and the power system. get_data() function
+    holds the main application logic to retrieve time-series data.
+    API calls require free user account registration at
+    https://data.fingrid.fi/open-data-forms/registration/.
+License: MIT + file LICENSE
+URL: https://github.com/virmar/finnishgrid
+BugReports: https://github.com/virmar/finnishgrid/issues
+Encoding: UTF-8
+LazyData: true
+Imports: httr, 
+    jsonlite
+Suggests: 
+    rmarkdown,
+    knitr,
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.2
+VignetteBuilder: knitr
