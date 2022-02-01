@@ -16,6 +16,8 @@ You can install the development version of finnishgrid from
 
 ``` r
 # install.packages("devtools")
+# required dependencies httr and jsonlite
+# install.packages(c("httr", "jsonlite"))
 devtools::install_github("virmar/finnishgrid")
 ```
 
