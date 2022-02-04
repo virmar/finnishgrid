@@ -20,6 +20,26 @@ YYYY-MM-ddTHH:mm:ssZ}
 \item{user_key}{Character array holding API-key.
 Free from https://data.fingrid.fi/open-data-forms/registration/}
 }
+\value{
+A data frame object that contains  Hour change regulation,
+up-regulation. In order to reduce problems encountered at the turn of
+the hour in the Nordic countries or in Finland, the planned production
+changes will be transfered to begin 15 minutes before or after the
+planned moment.
+}
 \description{
 Check https://data.fingrid.fi/en/dataset/hour-change-regulation-up-regulation
+}
+\examples{
+\dontrun{
+library(finnishgrid)
+start = "2021-01-01T00:00:00+0200"  # UTC+2 offset, Helsinki time
+end = "2021-01-10T00:00:00+0200"    # UTC+2 offset, Helsinki time
+key = "MY_SUPER_SECRET"
+df <- hour_change_regulation_up_regulation(
+    start_time = start,
+    end_time = end,
+    user_key = key)
+summary(df)
+}
 }

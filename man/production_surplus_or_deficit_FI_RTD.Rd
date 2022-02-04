@@ -20,6 +20,30 @@ YYYY-MM-ddTHH:mm:ssZ}
 \item{user_key}{Character array holding API-key.
 Free from https://data.fingrid.fi/open-data-forms/registration/}
 }
+\value{
+A data frame object that contains Finland's energy production
+surplus/deficit. Information is based on the real time measurements in
+Fingrid's power control system. Power deficit/surplus represents the
+balance between power production and consumption in Finland, taking into
+account imports and exports. Power deficit/surplus is calculated as the
+difference between the measured net import/export and the confirmed net
+exchange program between Finland and the other Nordic countries. Sign
+convention: production deficit -, surplus +. The data is updated every
+3 minutes.
+}
 \description{
 Check data	https://data.fingrid.fi/en/dataset/production-surplus-deficit-in-finland-real-time-data
+}
+\examples{
+\dontrun{
+library(finnishgrid)
+start = "2021-01-01T00:00:00+0200"  # UTC+2 offset, Helsinki time
+end = "2021-01-10T00:00:00+0200"    # UTC+2 offset, Helsinki time
+key = "MY_SUPER_SECRET"
+df <- production_surplus_or_deficit_FI_RTD(
+    start_time = start,
+    end_time = end,
+    user_key = key)
+summary(df)
+}
 }

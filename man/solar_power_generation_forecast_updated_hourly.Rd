@@ -20,6 +20,28 @@ YYYY-MM-ddTHH:mm:ssZ}
 \item{user_key}{Character array holding API-key.
 Free from https://data.fingrid.fi/open-data-forms/registration/}
 }
+\value{
+A data frame object that contains hourly updated solar power
+generation forecast for the next 36 hours. Solar forecasts are based on
+weather forecasts and estimates of installed PV capacity and location
+in Finland. Total PV capacity is based on yearly capacity statistics
+from the Finnish energy authority and estimates on installation rate
+of new capacity. Location information is a very rough estimate based
+on Finnish distribution grid operators information.
+}
 \description{
 Check https://data.fingrid.fi/en/dataset/solar-power-generation-forecast-updated-every-hour
+}
+\examples{
+\dontrun{
+library(finnishgrid)
+start = "2021-01-01T00:00:00+0200"  # UTC+2 offset, Helsinki time
+end = "2021-01-10T00:00:00+0200"    # UTC+2 offset, Helsinki time
+key = "MY_SUPER_SECRET"
+df <- solar_power_generation_forecast_updated_hourly(
+    start_time = start,
+    end_time = end,
+    user_key = key)
+summary(df)
+}
 }

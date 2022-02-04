@@ -20,6 +20,24 @@ YYYY-MM-ddTHH:mm:ssZ}
 \item{user_key}{Character array holding API-key.
 Free from https://data.fingrid.fi/open-data-forms/registration/}
 }
+\value{
+A data frame object that contains the total wind production
+capacity used in Fingrid's wind power forecast. It is based on capacity
+information gathered by Fingrid.
+}
 \description{
 Check https://data.fingrid.fi/en/dataset/total-wind-production-capacity
+}
+\examples{
+\dontrun{
+library(finnishgrid)
+start = "2021-01-01T00:00:00+0200"  # UTC+2 offset, Helsinki time
+end = "2021-01-10T00:00:00+0200"    # UTC+2 offset, Helsinki time
+key = "MY_SUPER_SECRET"
+df <- total_wind_production_used_in_forecast(
+    start_time = start,
+    end_time = end,
+    user_key = key)
+summary(df)
+}
 }

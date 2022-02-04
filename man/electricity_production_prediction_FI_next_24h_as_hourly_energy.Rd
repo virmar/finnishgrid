@@ -20,6 +20,26 @@ YYYY-MM-ddTHH:mm:ssZ}
 \item{user_key}{Character array holding API-key.
 Free from https://data.fingrid.fi/open-data-forms/registration/}
 }
+\value{
+A data frame object that contains hourly electricity generation
+forecast, which is based on the production plans that balance responsible
+parties have reported to Fingrid. The forecast is published daily by
+6.00 pm for the next day, and it is not updated to match the updated
+production plans that balance responsible parties send to Fingrid hourly.
+}
 \description{
 Check https://data.fingrid.fi/en/dataset/tentative-production-prediction-for-the-next-24-hours-as-an-hourly-energy
+}
+\examples{
+\dontrun{
+library(finnishgrid)
+start = "2021-01-01T00:00:00+0200"  # UTC+2 offset, Helsinki time
+end = "2021-01-10T00:00:00+0200"    # UTC+2 offset, Helsinki time
+key = "MY_SUPER_SECRET"
+df <- electricity_production_prediction_FI_next_24h_as_hourly_energy(
+    start_time = start,
+    end_time = end,
+    user_key = key)
+summary(df)
+}
 }

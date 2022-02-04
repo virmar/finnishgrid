@@ -16,6 +16,25 @@ YYYY-MM-ddTHH:mm:ssZ}
 \item{user_key}{Character array holding API-key.
 Free from https://data.fingrid.fi/open-data-forms/registration/}
 }
+\value{
+A data frame object that contains the activated downward power from
+balancing power market. The value is given for each 15 minutes and
+indicated the amount of activated power in the end of each 15 minute
+time period. The values are available starting from December 2018.
+}
 \description{
 Check https://data.fingrid.fi/en/dataset/aktivoitu-alassaatoteho
+}
+\examples{
+\dontrun{
+library(finnishgrid)
+start = "2021-01-01T00:00:00+0200"  # UTC+2 offset, Helsinki time
+end = "2021-01-10T00:00:00+0200"    # UTC+2 offset, Helsinki time
+key = "MY_SUPER_SECRET"
+df <- activated_down_regulation_power(
+    start_time = start,
+    end_time = end,
+    user_key = key)
+summary(df)
+}
 }

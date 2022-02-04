@@ -20,6 +20,24 @@ YYYY-MM-ddTHH:mm:ssZ}
 \item{user_key}{Character array holding API-key.
 Free from https://data.fingrid.fi/open-data-forms/registration/}
 }
+\value{
+A data frame object that contains Unused bilateral trade capacity
+from Finland (FI) to Russia (RUS). The capacity of electricity
+transmission in bilateral trade can be left unused if the parties do
+not export the maximum amount of electricity to Russia.
+}
 \description{
 Check https://data.fingrid.fi/en/dataset/unused-bilateral-trade-capacity-fi-rus
+}
+\examples{
+\dontrun{
+library(finnishgrid)
+start = "2021-01-01T00:00:00+0200"  # UTC+2 offset, Helsinki time
+end = "2021-01-10T00:00:00+0200"    # UTC+2 offset, Helsinki time
+key = "MY_SUPER_SECRET"
+df <- unused_biliteral_trade_capacity_FI_to_RUS(start_time = start,
+    end_time = end,
+    user_key = key)
+summary(df)
+}
 }

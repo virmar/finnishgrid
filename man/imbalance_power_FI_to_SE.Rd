@@ -16,6 +16,29 @@ YYYY-MM-ddTHH:mm:ssZ}
 \item{user_key}{Character array holding API-key.
 Free from https://data.fingrid.fi/open-data-forms/registration/}
 }
+\value{
+A data frame object that contains the volume of power equals to
+the difference between measured and commercial transmission between
+Finland and Sweden. The tradetypes of commercial flow include day
+ahead, intraday and trades between Fingrid and Svenska Kraftnät during
+the operational hour. When the value of imbalance power volume is
+positive Fingrid has sold imbalance power to Sweden. When the value
+of imbalance power volume is negative Fingrid has bought imbalance power
+from Sweden.
+}
 \description{
 Check https://data.fingrid.fi/en/dataset/imbalance-power-between-finland-and-sweden
+}
+\examples{
+\dontrun{
+library(finnishgrid)
+start = "2021-01-01T00:00:00+0200"  # UTC+2 offset, Helsinki time
+end = "2021-01-10T00:00:00+0200"    # UTC+2 offset, Helsinki time
+key = "MY_SUPER_SECRET"
+df <- imbalance_power_FI_to_SE(
+    start_time = start,
+    end_time = end,
+    user_key = key)
+summary(df)
+}
 }

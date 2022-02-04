@@ -16,6 +16,23 @@ YYYY-MM-ddTHH:mm:ssZ}
 \item{user_key}{Character array holding API-key.
 Free from https://data.fingrid.fi/open-data-forms/registration/}
 }
+\value{
+A data frame object that contains hourly electricity production in
+Finland are based on Fingrid's measurements. Minor part of production
+which is not measured is estimated. Updated hourly.
+}
 \description{
 Check https://data.fingrid.fi/en/dataset/electricity-production-in-finland
+}
+\examples{
+\dontrun{
+library(finnishgrid)
+start = "2021-01-01T00:00:00+0200"  # UTC+2 offset, Helsinki time
+end = "2021-01-10T00:00:00+0200"    # UTC+2 offset, Helsinki time
+key = "MY_SUPER_SECRET"
+df <- electricity_production_FI(start_time = start,
+    end_time = end,
+    user_key = key)
+summary(df)
+}
 }

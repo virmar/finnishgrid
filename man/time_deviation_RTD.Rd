@@ -16,6 +16,25 @@ YYYY-MM-ddTHH:mm:ssZ}
 \item{user_key}{Character array holding API-key.
 Free from https://data.fingrid.fi/open-data-forms/registration/}
 }
+\value{
+A data frame object that contains time deviation is the time
+difference in seconds between a clock running according to the frequency
+of the grid and a reference clock independent of the frequency of the
+grid. The data is updated every 3 minutes.
+}
 \description{
 Check https://data.fingrid.fi/en/dataset/time-deviation-real-time-data
+}
+\examples{
+\dontrun{
+library(finnishgrid)
+start = "2021-01-01T00:00:00+0200"  # UTC+2 offset, Helsinki time
+end = "2021-01-10T00:00:00+0200"    # UTC+2 offset, Helsinki time
+key = "MY_SUPER_SECRET"
+df <- time_deviation_RTD(
+    start_time = start,
+    end_time = end,
+    user_key = key)
+summary(df)
+}
 }

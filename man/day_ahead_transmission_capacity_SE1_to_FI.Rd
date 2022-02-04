@@ -20,6 +20,23 @@ YYYY-MM-ddTHH:mm:ssZ}
 \item{user_key}{Character array holding API-key.
 Free from https://data.fingrid.fi/open-data-forms/registration/}
 }
+\value{
+A data frame object that contains Day-ahead transmission capacity
+from North-Sweden (SE1) to Finland (FI). Transmission capacity is given
+hourly for every hour of the next day.
+}
 \description{
 Check https://data.fingrid.fi/en/dataset/intra-day-transmission-capacity-se1-fi
+}
+\examples{
+\dontrun{
+library(finnishgrid)
+start = "2021-01-01T00:00:00+0200"  # UTC+2 offset, Helsinki time
+end = "2021-01-10T00:00:00+0200"    # UTC+2 offset, Helsinki time
+key = "MY_SUPER_SECRET"
+df <- day_ahead_transmission_capacity_SE1_to_FI(start_time = start,
+                                                end_time = end,
+                                                user_key = key)
+summary(df)
+}
 }

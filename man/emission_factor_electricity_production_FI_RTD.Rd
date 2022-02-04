@@ -20,6 +20,27 @@ YYYY-MM-ddTHH:mm:ssZ}
 \item{user_key}{Character array holding API-key.
 Free from https://data.fingrid.fi/open-data-forms/registration/}
 }
+\value{
+A data frame object that contains near in real time calculated
+carbon dioxide emission estimate of electricity production in Finland.
+The emissions are estimated by summing each product of different
+electricity production type and their emission factor together, and by
+dividing the sum by Finland's total electricity production. The data is
+updated every 3 minutes.
+}
 \description{
 Check https://data.fingrid.fi/en/dataset/suomen-sahkontuotannon-paastokerroin-reaaliaikatieto
+}
+\examples{
+\dontrun{
+library(finnishgrid)
+start = "2021-01-01T00:00:00+0200"  # UTC+2 offset, Helsinki time
+end = "2021-01-10T00:00:00+0200"    # UTC+2 offset, Helsinki time
+key = "MY_SUPER_SECRET"
+df <- emission_factor_electricity_production_FI_RTD(
+    start_time = start,
+    end_time = end,
+    user_key = key)
+summary(df)
+}
 }

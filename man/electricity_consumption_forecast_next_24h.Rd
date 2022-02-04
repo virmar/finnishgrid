@@ -20,6 +20,24 @@ YYYY-MM-ddTHH:mm:ssZ}
 \item{user_key}{Character array holding API-key.
 Free from https://data.fingrid.fi/open-data-forms/registration/}
 }
+\value{
+A data frame object that contains an hourly consumption forecast
+for the next 24 hours made by Fingrid. Forecast is published on previous
+day at 12:00 EET.
+}
 \description{
 Check https://data.fingrid.fi/en/dataset/an-hourly-comsumption-forecast-for-the-next-24-hours
+}
+\examples{
+\dontrun{
+library(finnishgrid)
+start = "2021-01-01T00:00:00+0200"  # UTC+2 offset, Helsinki time
+end = "2021-01-10T00:00:00+0200"    # UTC+2 offset, Helsinki time
+key = "MY_SUPER_SECRET"
+df <- electricity_consumption_forecast_next_24h(
+    start_time = start,
+    end_time = end,
+    user_key = key)
+summary(df)
+}
 }

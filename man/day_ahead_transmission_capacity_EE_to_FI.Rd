@@ -20,6 +20,29 @@ YYYY-MM-ddTHH:mm:ssZ}
 \item{user_key}{Character array holding API-key.
 Free from https://data.fingrid.fi/open-data-forms/registration/}
 }
+\value{
+A data frame object that contains day-ahead transmission capacity
+from Estonia (EE) to Finland (FI). Transmission capacity is given
+hourly for every hour of the next day. Each hour is given one value.
+Day-ahead transmission capacity Fingrid will publish every day in the
+afternoon. This capacity will not changed after publication.
+Transmission capacity mean the capability of the electricity system to
+supply electricity to the market without compromising the system
+security.
+}
 \description{
 Check https://data.fingrid.fi/en/dataset/intra-day-transmission-capacity-ee-fi
+}
+\examples{
+\dontrun{
+library(finnishgrid)
+start = "2021-01-01T00:00:00+0200"  # UTC+2 offset, Helsinki time
+end = "2021-01-10T00:00:00+0200"    # UTC+2 offset, Helsinki time
+key = "MY_SUPER_SECRET"
+df <- day_ahead_transmission_capacity_EE_to_FI(
+    start_time = start,
+    end_time = end,
+    user_key = key)
+summary(df)
+}
 }

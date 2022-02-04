@@ -20,6 +20,25 @@ YYYY-MM-ddTHH:mm:ssZ}
 \item{user_key}{Character array holding API-key.
 Free from https://data.fingrid.fi/open-data-forms/registration/}
 }
+\value{
+A data frame object that contains the capacity on the 400 kV
+connection from Russia to Finland is reserved to direct trade of the
+following commercial day. Fingrid and the Russian parties, who have
+jointly agreed that the capacity is 140 MW in both directions, daily
+confirm the capacity.
+}
 \description{
 Check https://data.fingrid.fi/en/dataset/stock-exchange-capacity-rus-fi
+}
+\examples{
+\dontrun{
+library(finnishgrid)
+start = "2021-01-01T00:00:00+0200"  # UTC+2 offset, Helsinki time
+end = "2021-01-10T00:00:00+0200"    # UTC+2 offset, Helsinki time
+key = "MY_SUPER_SECRET"
+df <- stock_exchange_capacity_RUS_to_FI(start_time = start,
+    end_time = end,
+    user_key = key)
+summary(df)
+}
 }

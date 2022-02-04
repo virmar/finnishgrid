@@ -16,6 +16,22 @@ YYYY-MM-ddTHH:mm:ssZ}
 \item{user_key}{Character array holding API-key.
 Free from https://data.fingrid.fi/open-data-forms/registration/}
 }
+\value{
+A data frame object that contains activated automatic Frequency
+Restoration Reserve (aFRR) energy, up, in MWh.
+}
 \description{
 Check https://data.fingrid.fi/en/dataset/activated-automatic-frequency-restoration-reserve-up
+}
+\examples{
+\dontrun{
+library(finnishgrid)
+start = "2021-01-01T00:00:00+0200"  # UTC+2 offset, Helsinki time
+end = "2021-01-10T00:00:00+0200"    # UTC+2 offset, Helsinki time
+key = "MY_SUPER_SECRET"
+df <- activated_aFRR_down(start_time = start,
+    end_time = end,
+    user_key = key)
+summary(df)
+}
 }

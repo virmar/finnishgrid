@@ -16,6 +16,28 @@ YYYY-MM-ddTHH:mm:ssZ}
 \item{user_key}{Character array holding API-key.
 Free from https://data.fingrid.fi/open-data-forms/registration/}
 }
+\value{
+A data frame object that contains the procurement prognosis for
+Fast Frequency Reserve (FFR) (MW). Fingrid procures FFR based on the
+procurement prognosis. The prognosis is updated once a day, typically
+at 11:00 (EET). The Fast Frequency Reserve (FFR) is procured to handle
+low-inertia situations. The needed volume of Fast Frequency Reserve
+depends on the amount of inertia in the power system and the size of
+the reference incident.
+}
 \description{
 Check https://data.fingrid.fi/en/dataset/nopea-taajuusreservi-hankintaennuste
+}
+\examples{
+\dontrun{
+library(finnishgrid)
+start = "2021-01-01T00:00:00+0200"  # UTC+2 offset, Helsinki time
+end = "2021-01-10T00:00:00+0200"    # UTC+2 offset, Helsinki time
+key = "MY_SUPER_SECRET"
+df <- FFR_procurement_forecast(
+    start_time = start,
+    end_time = end,
+    user_key = key)
+summary(df)
+}
 }

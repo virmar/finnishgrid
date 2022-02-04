@@ -20,6 +20,24 @@ YYYY-MM-ddTHH:mm:ssZ}
 \item{user_key}{Character array holding API-key.
 Free from https://data.fingrid.fi/open-data-forms/registration/}
 }
+\value{
+A data frame object that contains transmission capacity for
+intraday market from Mid Sweden to Finland (SE3-FI). Capacity for
+intraday market is given as free capacity after dayahead market.
+Capacity is published once a day and not updated.
+}
 \description{
 Check https://data.fingrid.fi/en/dataset/transmission-capacity-to-be-given-to-intraday-market-se3-fi
+}
+\examples{
+\dontrun{
+library(finnishgrid)
+start = "2021-01-01T00:00:00+0200"  # UTC+2 offset, Helsinki time
+end = "2021-01-10T00:00:00+0200"    # UTC+2 offset, Helsinki time
+key = "MY_SUPER_SECRET"
+df <- transmission_capacity_intraday_market_SE3_to_FI(start_time = start,
+    end_time = end,
+    user_key = key)
+summary(df)
+}
 }

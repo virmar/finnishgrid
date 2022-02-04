@@ -1,6 +1,6 @@
 Package: finnishgrid
 Type: Package
-Title: Fingrid Open Data API R Client
+Title: 'Fingrid Open Data API' R Client
 Version: 0.1.0
 Authors@R: c(
     person("Markus", "Virtanen", email = "markus.m.virtanen@gmail.com", 
@@ -8,7 +8,7 @@ Authors@R: c(
     person("Kai", "Hippi", email = "kai.hippi@aalto.fi", 
            role = "aut")
   )
-Description: R API client package for Fingrid Open Data on the 
+Description: R API client package for 'Fingrid Open Data' on the 
     electricity market and the power system. get_data() function
     holds the main application logic to retrieve time-series data.
     API calls require free user account registration.

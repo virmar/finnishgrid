@@ -20,6 +20,27 @@ YYYY-MM-ddTHH:mm:ssZ}
 \item{user_key}{Character array holding API-key.
 Free from https://data.fingrid.fi/open-data-forms/registration/}
 }
+\value{
+A data frame object that contains Finnish wind power generation
+forecasts for the next day. Forecast is updated every day at 12 p.m.
+EET. Length of the forecast is 36 hours. Overlapping hours are
+overwritten. The forecast is based on weather forecasts and data about
+the location, size and capacity of wind turbines. The weather data
+sourced from multiple providers.
+}
 \description{
 Check https://data.fingrid.fi/en/dataset/wind-power-generation-forecast-updated-once-a-day
+}
+\examples{
+\dontrun{
+library(finnishgrid)
+start = "2021-01-01T00:00:00+0200"  # UTC+2 offset, Helsinki time
+end = "2021-01-10T00:00:00+0200"    # UTC+2 offset, Helsinki time
+key = "MY_SUPER_SECRET"
+df <- wind_power_generation_forecast_daily_updated(
+    start_time = start,
+    end_time = end,
+    user_key = key)
+summary(df)
+}
 }

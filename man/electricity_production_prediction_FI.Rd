@@ -2,7 +2,8 @@
 % Please edit documentation in R/finnishgrid.R
 \name{electricity_production_prediction_FI}
 \alias{electricity_production_prediction_FI}
-\title{Finland's electricity production prediction based on production plans informed to Fingrid}
+\title{Finland's electricity production prediction based on production plans
+informed to Fingrid}
 \usage{
 electricity_production_prediction_FI(
   start_time = NA,
@@ -20,6 +21,25 @@ YYYY-MM-ddTHH:mm:ssZ}
 \item{user_key}{Character array holding API-key.
 Free from https://data.fingrid.fi/open-data-forms/registration/}
 }
+\value{
+A data frame object that contains the calculation of production
+forecast in Finland, which is based on the production plans that balance
+responsible parties have reported to Fingrid. Production forecast is
+updated hourly.
+}
 \description{
 Check https://data.fingrid.fi/en/dataset/finland-electricity-production-prediction-based-on-production-plans-informed-to-fingrid
+}
+\examples{
+\dontrun{
+library(finnishgrid)
+start = "2021-01-01T00:00:00+0200"  # UTC+2 offset, Helsinki time
+end = "2021-01-10T00:00:00+0200"    # UTC+2 offset, Helsinki time
+key = "MY_SUPER_SECRET"
+df <- electricity_production_prediction_FI(
+    start_time = start,
+    end_time = end,
+    user_key = key)
+summary(df)
+}
 }

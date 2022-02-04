@@ -16,6 +16,25 @@ YYYY-MM-ddTHH:mm:ssZ}
 \item{user_key}{Character array holding API-key.
 Free from https://data.fingrid.fi/open-data-forms/registration/}
 }
+\value{
+A data frame object that contains the hourly sum of reserve plans
+for frequency containment reserve for normal operation (FCR-N) in the
+yearly market. The data will be published 22:45 (EET) on previous
+evening.
+}
 \description{
 Check https://data.fingrid.fi/en/dataset/taajuusohjattu-kayttoreservi-vuosimarkkinasuunnitelmat
+}
+\examples{
+\dontrun{
+library(finnishgrid)
+start = "2021-01-01T00:00:00+0200"  # UTC+2 offset, Helsinki time
+end = "2021-01-10T00:00:00+0200"    # UTC+2 offset, Helsinki time
+key = "MY_SUPER_SECRET"
+df <- FCRN_yearly_market_plans(
+    start_time = start,
+    end_time = end,
+    user_key = key)
+summary(df)
+}
 }

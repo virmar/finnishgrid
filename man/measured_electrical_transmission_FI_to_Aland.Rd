@@ -20,6 +20,26 @@ YYYY-MM-ddTHH:mm:ssZ}
 \item{user_key}{Character array holding API-key.
 Free from https://data.fingrid.fi/open-data-forms/registration/}
 }
+\value{
+A data frame object that contains measured electrical transmission
+between Finland and Åland islands DC tie line. Positive sign means
+transmission from Finland to Åland. Negative sign means transmission
+from Åland to Finland. The value is updated once a day before noon
+with the values of the previous day.
+}
 \description{
 Check https://data.fingrid.fi/en/dataset/measured-electrical-transmission-between-finland-and-aland
+}
+\examples{
+\dontrun{
+library(finnishgrid)
+start = "2021-01-01T00:00:00+0200"  # UTC+2 offset, Helsinki time
+end = "2021-01-10T00:00:00+0200"    # UTC+2 offset, Helsinki time
+key = "MY_SUPER_SECRET"
+df <- measured_electrical_transmission_FI_to_Aland(
+    start_time = start,
+    end_time = end,
+    user_key = key)
+summary(df)
+}
 }
